@@ -122,8 +122,7 @@ def editDoctorInfo(list):
             list[i] = inputDoctor
             print(f'\nDoctor whose ID is {id} has been edited\n')
     if is_there == 0:
-        print("Can't find the doctor with the same name on the system")
-    
+        print("Can't find the doctor with the same name on the system")   
 
 def displayDoctorsList():
     doctorList = readDoctorsFile()
