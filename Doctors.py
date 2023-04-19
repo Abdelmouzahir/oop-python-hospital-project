@@ -75,6 +75,7 @@ def enterDrInfo():
     time = input("Enter the doctor's timing (e.g., 7am-10pm): ")
     qual = input("Enter the doctor's qualification: ")
     room = input("Enter the doctor's room number: ")
+    print(f'\nDoctor whose ID is {doctor_id} has been added\n')
     
     return Doctor(doctor_id,name,spec,time,qual,room)
    
@@ -85,40 +86,41 @@ def displayDoctorInfo(doctor):
 
 
 def searchDoctorById(list):
-    selected_id = input("Please enter the doctor id:\n\n")  
+    selected_id = input("Please enter the doctor id: ")  
     is_there = 0
     for i in range(0, len(list)):
         if str(list[i].doctor_id) == selected_id:
             displayDoctorInfo(list[i])
             is_there = 1
     if is_there == 0:
-        print("Can't find the doctor with the same ID on the system")
+        print("Can't find the doctor with the same ID on the system\n")
             
 
 def searchDoctorByName(list):
-    selected_name = input("Please enter the name of the doctor:\n\n")
+    selected_name = input("Please enter the name of the doctor: ")
     is_there = 0
     for i in range(0, len(list)):
         if str(list[i].name) == selected_name:
             displayDoctorInfo(list[i])
             is_there = 1
     if is_there == 0:
-        print("Can't find the doctor with the same name on the system")
+        print("Can't find the doctor with the same name on the system\n")
 
 def editDoctorInfo(list):
-    selected_id = input("Please enter the id of the doctor that you want to edit their information:\n\n")
+    selected_id = input("Please enter the id of the doctor that you want to edit their information: ")
     is_there = 0
     for i in range(0, len(list)):
         if str(list[i].doctor_id) == selected_id:
             is_there = 1
             id = selected_id
-            name = input("Enter the doctor's name:\n\n")
-            spec = input("Enter the doctor's speciality:\n\n")
-            time = input("Enter the doctor's timing (e.g., 7am-10pm):\n\n")
-            qual = input("Enter the doctor's qualification:\n\n")
-            room = input("Enter the doctor's room number:\n\n")
+            name = input("Enter the doctor's name: ")
+            spec = input("Enter the doctor's speciality: ")
+            time = input("Enter the doctor's timing (e.g., 7am-10pm): ")
+            qual = input("Enter the doctor's qualification: ")
+            room = input("Enter the doctor's room number: ")
             inputDoctor = Doctor(id,name,spec,time,qual,room)
             list[i] = inputDoctor
+            print(f'\nDoctor whose ID is {id} has been edited\n')
     if is_there == 0:
         print("Can't find the doctor with the same name on the system")
     
@@ -147,27 +149,21 @@ def doctorMenu():
     listOfDoctors = readDoctorsFile()
     doctorMenuSelection = True
     while doctorMenuSelection:
-        choice = int(input("Doctors Menu:\n1 - Display Doctors list\n2 - Search for doctor by ID\n3 - Search for doctor by name\n4 - Add doctor\n5 - Edit doctor into\n6 - Back to the Main Menu\n\n"))
+        choice = int(input("Doctors Menu:\n1 - Display Doctors list\n2 - Search for doctor by ID\n3 - Search for doctor by name\n4 - Add doctor\n5 - Edit doctor into\n6 - Back to the Main Menu\n>>> "))
         if choice == 1: 
             displayDoctorsList()
-            print("Back to the previous Menu")
         if choice == 2:
             searchDoctorById(listOfDoctors)
-            print("Back to the previous Menu")
         if choice == 3:
             searchDoctorByName(listOfDoctors)
-            print("Back to the previous Menu")
         if choice == 4:
             inputDoctor = enterDrInfo()
             addDrToFile(inputDoctor)
-            print("Back to the previous Menu")
         if choice == 5:
             editDoctorInfo(listOfDoctors)
             writeListOfDoctorsToFile(listOfDoctors)
-            print("Back to the previous Menu")
         if choice == 6:
             doctorMenuSelection = False
-            print("Back to the previous Menu")
 
 if __name__ == "__main__":
     doctorMenu()                   
