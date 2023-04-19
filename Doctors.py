@@ -76,7 +76,6 @@ def enterDrInfo():
     qual = input("Enter the doctor's qualification: ")
     room = input("Enter the doctor's room number: ")
     print(f'\nDoctor whose ID is {doctor_id} has been added\n')
-    
     return Doctor(doctor_id,name,spec,time,qual,room)
    
 
