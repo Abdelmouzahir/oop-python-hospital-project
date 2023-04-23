@@ -38,9 +38,5 @@ class Doctor:
         return "{0:4} {1:22} {2:15} {3:15} {4:15} {5}".format(self.doctor_id, self.name, self.specialization, self.working_time, self.qualification, self.room_number)
 
 
-    #def formatDrInfo(self):
-        
-        #formattedDoctor = "{0}_{1}_{2}_{3}_{4}_{5}".format(self.doctor_id, self.name, self.specialization, self.working_time, self.qualification, self.room_number)
-        #return formattedDoctor
 
 
